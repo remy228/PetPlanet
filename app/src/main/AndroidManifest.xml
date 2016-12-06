@@ -18,6 +18,37 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".GetPet"
+            android:label="@string/title_activity_get_pet"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.MainActivity" />
+        </activity>
+        <activity
+            android:name=".PostPet"
+            android:label="@string/title_activity_post_pet"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.MainActivity" />
+        </activity>
+        <activity
+            android:name=".WalkPet"
+            android:label="@string/title_activity_walk_pet"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".PetContacts"
+            android:label="@string/title_activity_pet_contacts"
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
