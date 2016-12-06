@@ -5,4 +5,19 @@
     <string name="title_activity_post_pet">PostPet</string>
     <string name="title_activity_walk_pet">WalkPet</string>
     <string name="title_activity_pet_contacts">PetContacts</string>
+    <string name="spin">Select Pet Category</string>
+
+    <string-array name="items">
+        <item>Dog</item>
+        <item>Cat</item>
+        <item>Bird</item>
+        <item>Rabbit</item>
+        <item>Hamster</item>
+        <item>Horse</item>
+        <item>Cow</item>
+        <item>Goat</item>
+        <item>Sheep</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>

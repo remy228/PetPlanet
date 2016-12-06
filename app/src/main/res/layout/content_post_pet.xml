@@ -12,4 +12,76 @@
     tools:context="com.example.remya.petplanet.PostPet"
     tools:showIn="@layout/activity_post_pet">
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Do you have a  pet available for adoption?"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Submit photos and information and we&apos;ll post them on our app!"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pet Category:"
+        android:id="@+id/textView7"
+        android:layout_below="@+id/textView6"
+        android:layout_alignParentStart="true" />
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/spinner"
+        android:prompt="@string/spin"
+        android:layout_below="@+id/textView6"
+        android:entries="@array/items"
+        android:layout_alignEnd="@+id/textView6" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Pet Breed:"
+        android:id="@+id/textView8"
+        android:layout_alignBottom="@+id/ingredientsInput"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Enter Breed:"
+        android:id="@+id/ingredientsInput"
+
+        android:autoText="true"
+        android:layout_below="@+id/textView7"
+        android:layout_toEndOf="@+id/textView7" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/photobutton"
+        android:src="@drawable/camera_icon"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxHeight="100dp"
+        android:maxWidth="100dp"
+        android:id="@+id/imageView"
+        android:layout_toEndOf="@+id/ingredientsInput"
+        android:layout_alignTop="@+id/photobutton" />
+
 </RelativeLayout>
