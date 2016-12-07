@@ -19,5 +19,6 @@
         <item>Sheep</item>
         <item>Other</item>
     </string-array>
+    <string name="title_activity_walking_">Walking_Activity</string>
 
 </resources>

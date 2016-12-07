@@ -49,6 +49,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.remya.petplanet.MainActivity" />
         </activity>
+        <activity
+            android:name=".Walking_Activity"
+            android:label="@string/title_activity_walking_"
+            android:parentActivityName=".WalkPet"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.WalkPet" />
+        </activity>
     </application>
 
 </manifest>
