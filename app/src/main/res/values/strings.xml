@@ -21,4 +21,18 @@
     </string-array>
     <string name="title_activity_walking_">Walking_Activity</string>
 
+    <string name="step_counter">
+         android.hardware.sensor.stepcounter
+   </string>
+
+
+<string name="step_detector">
+         android.hardware.sensor.stepdetector
+   </string>
+    <string name="title_activity_weather">Weather</string>
+    <string name="temperature">Temperature</string>
+    <string name="condition">Condition</string>
+    <string name="location">Location</string>
+    <string name="title_activity_main2">Main2Activity</string>
+
 </resources>

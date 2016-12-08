@@ -12,4 +12,22 @@
     tools:context="com.example.remya.petplanet.Walking_Activity"
     tools:showIn="@layout/activity_walking_">
 
+
+    <ToggleButton android:id="@+id/StartStopButton"
+        android:layout_width="wrap_content"	android:layout_height="wrap_content"
+        android:textOn="Stop Workout" android:textOff="Start Workout"
+        android:minHeight="64dip" android:minWidth="96dip"
+        android:layout_gravity="center_vertical">
+    </ToggleButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Large Text"
+        android:id="@+id/text"
+        android:layout_below="@+id/StartStopButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="62dp" />
+
 </RelativeLayout>

@@ -44,12 +44,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void petContacts(View view)
+       public void petContacts(View view)
     {
         Intent intent = new Intent(this,PetContacts.class);
         startActivity(intent);
 
     }
+
+
+
 
 
     @Override

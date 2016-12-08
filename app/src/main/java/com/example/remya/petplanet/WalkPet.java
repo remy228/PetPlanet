@@ -26,4 +26,11 @@ public class WalkPet extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void getWeather(View view)
+    {
+        Intent intent = new Intent(this,Weather.class);
+        startActivity(intent);
+
+    }
+
 }
