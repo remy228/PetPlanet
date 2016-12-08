@@ -41,8 +41,6 @@ public class Weather extends AppCompatActivity implements WeatherServiceCallback
 
         service.refreshWeather("San Jose, CA");
 
-
-
     }
 
 
