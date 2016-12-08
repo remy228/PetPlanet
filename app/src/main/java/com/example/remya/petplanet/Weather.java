@@ -39,7 +39,7 @@ public class Weather extends AppCompatActivity implements WeatherServiceCallback
         dialog.setMessage("Loading...");
         dialog.show();
 
-        service.refreshWeather("San Jose, California");
+        service.refreshWeather("San Jose, CA");
 
 
 

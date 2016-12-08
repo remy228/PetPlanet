@@ -19,7 +19,7 @@ android:layout_height="match_parent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="10dC"
+        android:text="@string/temperature"
         android:id="@+id/temperatureTextView"
         android:textStyle="bold"
         android:typeface="serif"
@@ -43,7 +43,7 @@ android:layout_height="match_parent"
         android:id="@+id/locationTextView"
         android:textStyle="bold"
         android:layout_below="@+id/conditionTextView"
-        android:layout_alignEnd="@+id/weatherIconImageView" />
+        android:layout_alignStart="@+id/conditionTextView" />
 
     <ImageView
         android:layout_width="wrap_content"
