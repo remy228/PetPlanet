@@ -88,7 +88,7 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/imageButton11"
                 android:layout_alignParentBottom="true"
-                android:src="@drawable/a_pet_sitting" />
+                android:src="@drawable/a_pet_sitting_2" />
 
         </TableRow>
 

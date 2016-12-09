@@ -6,34 +6,35 @@
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.remya.petplanet.WalkPet"
-    tools:showIn="@layout/activity_walk_pet">
+    tools:showIn="@layout/activity_walk_pet2">
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageView2"
-        android:layout_alignParentTop="true"
         android:src="@drawable/walkdog"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="40dp"/>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="WEATHER REPORT!"
         android:id="@+id/button2"
+        android:onClick="getWeather"
         android:layout_below="@+id/imageView2"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="64dp"
-        android:onClick="getWeather"/>
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="START WALKING!"
         android:id="@+id/button3"
+        android:onClick="startWalking"
         android:layout_below="@+id/button2"
-        android:layout_alignParentStart="true"
-        android:layout_alignEnd="@+id/button2"
-        android:onClick="startWalking"/>
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
 </RelativeLayout>
