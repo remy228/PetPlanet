@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageButton"
             android:src="@drawable/get_a_pet"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
             android:layout_alignBottom="@+id/imageButton2"
             android:layout_toStartOf="@+id/imageButton3"
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageButton2"
             android:src="@drawable/post_a_pet"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="10dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_row="0"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Get a Pet!"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/textView"
             android:layout_row="1"
             android:layout_column="3" />
@@ -64,7 +64,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Post a Pet!"
-            android:layout_marginBottom="30dp"
+            android:layout_marginBottom="10dp"
             android:id="@+id/textView2"
             android:layout_row="1"
             android:layout_column="4" />
@@ -95,7 +95,6 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Walk a Pet!"
-            android:layout_marginBottom="30dp"
             android:id="@+id/textView3"
             android:layout_row="3"
             android:layout_column="3" />
@@ -105,18 +104,22 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="Pet Contacts!"
-            android:layout_marginBottom="30dp"
             android:id="@+id/textView4"
             android:layout_row="3"
             android:layout_column="4" />
 
+
+        <com.facebook.login.widget.LoginButton
+            android:id="@+id/login_button"
+            android:layout_width="248dp"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_row="5"
+            android:layout_column="3"
+            android:layout_columnSpan="2" />
+
+
     </GridLayout>
 
-
-
-
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></LinearLayout>
 </LinearLayout>

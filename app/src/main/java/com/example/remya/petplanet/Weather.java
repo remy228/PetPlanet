@@ -1,7 +1,6 @@
 package com.example.remya.petplanet;
 
 import android.app.ProgressDialog;
-import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -38,7 +37,6 @@ public class Weather extends AppCompatActivity implements WeatherServiceCallback
         dialog = new ProgressDialog(this);
         dialog.setMessage("Loading...");
         dialog.show();
-
         service.refreshWeather("San Jose, CA");
 
     }

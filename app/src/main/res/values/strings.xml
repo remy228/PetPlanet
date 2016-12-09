@@ -34,5 +34,8 @@
     <string name="condition">Condition</string>
     <string name="location">Location</string>
     <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_login">Login</string>
+
+    <string name="facebook_app_id">1836450273307079</string>
 
 </resources>
