@@ -1,5 +1,6 @@
 package com.example.remya.petplanet;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -16,6 +17,13 @@ public class PetContacts extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+    }
+
+    public void getServiceForm(View view){
+
+        Intent intent = new Intent(this,ServiceRequestForm.class);
+        startActivity(intent);
 
     }
 

@@ -38,4 +38,16 @@
 
     <string name="facebook_app_id">1836450273307079</string>
 
+
+    <string-array name="cities">
+        <item>Los Angeles</item>
+        <item>San Jose</item>
+        <item>Sacramento</item>
+        <item>San Diego</item>
+        <item>San Francisco</item>
+        <item>Santa Clara</item>
+        <item>Berkeley</item>
+    </string-array>
+    <string name="title_activity_pet_results">PetResults</string>
+    <string name="title_activity_service_request_form">ServiceRequestForm</string>
 </resources>
