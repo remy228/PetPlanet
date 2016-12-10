@@ -1,29 +1,30 @@
-package com.example.remya.petplanet;
+package com.example.remya.petplanet.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class GetPet extends AppCompatActivity {
+import com.example.remya.petplanet.R;
+
+public class PetContacts extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_get_pet);
+        setContentView(R.layout.activity_pet_contacts);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
     }
 
-    public void getResults(View view)
-    {
-        Intent intent = new Intent(this,PetResults.class);
+    public void getServiceForm(View view){
+
+        Intent intent = new Intent(this,ServiceRequestForm.class);
         startActivity(intent);
+
     }
 
 }

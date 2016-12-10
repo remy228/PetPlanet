@@ -1,161 +1,357 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:layout_marginTop="40dp"
-    android:scrollbars="none"
-    android:layout_weight="1"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_marginTop="60dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillViewport="false">
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/activity_vertical_margin"
-        android:paddingLeft="@dimen/activity_horizontal_margin"
-        android:paddingRight="@dimen/activity_horizontal_margin"
-        android:paddingTop="@dimen/activity_vertical_margin"
+        android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
-        tools:context="com.example.remya.petplanet.PostPet"
+        android:orientation="horizontal"
+        tools:context=".activity.PostPet"
         tools:showIn="@layout/activity_post_pet">
 
-<!--
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.remya.petplanet.PostPet"
-    tools:showIn="@layout/activity_post_pet">-->
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Do you have a  pet available for adoption?"
+                    android:id="@+id/textView5"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="Submit photos and information and we&apos;ll post them on our app!"
+                        android:id="@+id/textView6"
+                        android:layout_below="@+id/textView5"
+                        android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
 
 
-        <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="Enter Breed:"
-            android:id="@+id/breedInput"
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            android:autoText="true"
-            android:layout_alignBottom="@+id/textView8"
-            android:layout_alignEnd="@+id/spinner" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Pet Category:"
+                    android:id="@+id/textView7"
+                    android:layout_below="@+id/textView6"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
 
-        <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Do you have a  pet available for adoption?"
-        android:id="@+id/textView5"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Submit photos and information and we&apos;ll post them on our app!"
-        android:id="@+id/textView6"
-        android:layout_below="@+id/textView5"
-        android:layout_alignParentStart="true" />
+                <Spinner
+                    android:id="@+id/spinner"
+                android:prompt="@string/spin"
+                android:entries="@array/items"
+                android:layout_below="@+id/textView6"
+                android:layout_centerHorizontal="true"
+                    android:layout_column="0" />
+            </TableRow>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Pet Category:"
-        android:id="@+id/textView7"
-        android:layout_below="@+id/textView6"
-        android:layout_alignParentStart="true" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Spinner
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/spinner"
-        android:prompt="@string/spin"
-        android:entries="@array/items"
-        android:layout_below="@+id/textView6"
-        android:layout_centerHorizontal="true" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Pet Breed:"
+                    android:id="@+id/textView8"
+                    android:layout_below="@+id/imageView"
+                    android:layout_alignEnd="@+id/photobutton"
+                    android:layout_column="0" />
+            </TableRow>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Pet Breed:"
-        android:id="@+id/textView8"
-        android:layout_below="@+id/imageView"
-        android:layout_alignEnd="@+id/photobutton" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-        <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/photobutton"
-        android:src="@drawable/camera_icon"
-            android:layout_below="@+id/textView7"
-            android:layout_alignParentStart="true" />
+                <EditText
+                    android:hint="Enter Breed:"
+                android:id="@+id/breedInput"
+                android:layout_alignBottom="@+id/textView8"
+                android:layout_alignEnd="@+id/spinner"
+                    android:layout_column="0" />
+            </TableRow>
 
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:maxHeight="100dp"
-        android:maxWidth="100dp"
-        android:id="@+id/imageView"
-        android:layout_toEndOf="@+id/breedInput"
-        android:layout_below="@+id/photobutton" />
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Pet Name:"
-        android:id="@+id/textView9"
-        android:layout_below="@+id/textView8"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="47dp" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint="Enter Name"
-        android:id="@+id/nameInput"
-
-        android:autoText="true"
-        android:layout_above="@+id/textView10"
-        android:layout_toEndOf="@+id/textView7" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Description:"
-        android:id="@+id/textView10"
-        android:layout_marginTop="47dp"
-        android:layout_below="@+id/textView9"
-        android:layout_alignParentStart="true" />
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Pet City: "
+                    android:id="@+id/textView14"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
 
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:hint=""
-        android:id="@+id/descriptionInput"
-        android:height="140dp"
-        android:autoText="true"
-        android:layout_alignTop="@+id/textView10"
-        android:layout_alignEnd="@+id/textView6"
-        android:background="@android:color/darker_gray"
-        android:layout_alignStart="@+id/nameInput" />
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Submit"
-            android:id="@+id/button"
-            android:layout_alignParentBottom="true"
-            android:layout_alignEnd="@+id/textView10" />
 
-    </RelativeLayout>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:hint=""
+                    android:id="@+id/cityInput"
+                    android:background="@android:color/darker_gray"
+                    android:layout_alignStart="@+id/breedInput"
+                    android:layout_toStartOf="@+id/nameInput"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignEnd="@+id/nameInput"
+                    android:layout_alignTop="@+id/textView14"
+                    android:layout_marginBottom="10dp"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Organization Name: "
+                    android:id="@+id/textView70"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:hint=""
+                    android:id="@+id/orgInput"
+                    android:background="@android:color/darker_gray"
+                    android:layout_alignStart="@+id/breedInput"
+                    android:layout_toStartOf="@+id/nameInput"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignEnd="@+id/nameInput"
+                    android:layout_alignTop="@+id/textView14"
+                    android:layout_marginBottom="10dp"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Phone Number: "
+                    android:id="@+id/textView71"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:hint=""
+                    android:id="@+id/numberInput"
+                    android:background="@android:color/darker_gray"
+                    android:layout_alignStart="@+id/breedInput"
+                    android:layout_toStartOf="@+id/nameInput"
+                    android:layout_above="@+id/descriptionInput"
+                    android:layout_alignEnd="@+id/nameInput"
+                    android:layout_alignTop="@+id/textView14"
+                    android:layout_marginBottom="10dp"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Pet Gender:"
+                    android:id="@+id/textView15"
+                    android:layout_marginTop="47dp"
+                    android:layout_below="@+id/textView9"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Spinner
+                    android:id="@+id/spinner1"
+                    android:prompt="@string/spin"
+                    android:entries="@array/gender"
+                    android:layout_below="@+id/textView6"
+                    android:layout_centerHorizontal="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/photobutton"
+                    android:src="@drawable/camera_icon"
+                    android:layout_below="@+id/textView7"
+                    android:layout_alignParentStart="true"
+                    android:paddingRight="120dp"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="210dp"
+                    android:maxHeight="60dp"
+                    android:maxWidth="70dp"
+                    android:id="@+id/imageView"
+                    android:layout_toEndOf="@+id/breedInput"
+                    android:layout_below="@+id/photobutton"
+                    android:layout_weight="30.07"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text="Pet Name:"
+                android:id="@+id/textView9"
+                android:layout_below="@+id/textView8"
+                android:layout_alignParentStart="true"
+                android:layout_marginTop="47dp" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="30dp">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Enter Name"
+                android:id="@+id/nameInput"
+
+                android:autoText="true"
+                android:layout_above="@+id/textView10"
+                android:layout_toEndOf="@+id/textView7" />
+
+
+        </TableRow>
+
+
+
+
+        <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Description:"
+                    android:id="@+id/textView10"
+                    android:layout_marginTop="47dp"
+                    android:layout_below="@+id/textView9"
+                    android:layout_alignParentStart="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint=""
+                    android:id="@+id/descriptionInput"
+                    android:height="140dp"
+                    android:autoText="true"
+                    android:background="@android:color/darker_gray"
+                    android:layout_alignTop="@+id/button"
+                    android:layout_alignParentEnd="true"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Submit"
+                    android:paddingRight="130dp"
+                    android:id="@+id/button"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignEnd="@+id/textView10"
+                    android:layout_column="0" />
+            </TableRow>
+
+
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </TableRow>
+        </TableLayout>
+
+
+
+
+
+
+    </LinearLayout>
 </ScrollView>

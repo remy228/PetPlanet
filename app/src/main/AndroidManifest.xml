@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.remya.petplanet">
 
+    <permission
+        android:name="android.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -26,7 +30,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
@@ -54,59 +58,59 @@
             android:process=":StepService" />
 
         <activity
-            android:name=".GetPet"
+            android:name=".activity.GetPet"
             android:label="@string/title_activity_get_pet"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
         <activity
-            android:name=".PostPet"
+            android:name=".activity.PostPet"
             android:label="@string/title_activity_post_pet"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
         <activity
-            android:name=".PetContacts"
+            android:name=".activity.PetContacts"
             android:label="@string/title_activity_pet_contacts"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
         <activity
-            android:name=".Walking_Activity"
+            android:name=".activity.Walking_Activity"
             android:label="@string/title_activity_walking_"
-            android:parentActivityName=".WalkPet"
+            android:parentActivityName=".activity.WalkPet"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.WalkPet" />
+                android:value=".activity.WalkPet" />
         </activity>
         <activity
-            android:name=".Weather"
+            android:name=".activity.Weather"
             android:label="@string/title_activity_weather"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".WalkPet"
+            android:name=".activity.WalkPet"
             android:label="@string/title_activity_walk_pet"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
 
         <meta-data
@@ -114,22 +118,31 @@
             android:value="AIzaSyDZvs9gO_oLAmr9Vu2PXikMRaywYtpPXK4" />
 
         <activity
-            android:name=".PetResults"
+            android:name=".activity.PetResults"
             android:label="@string/title_activity_pet_results"
-            android:parentActivityName=".GetPet"
+            android:parentActivityName=".activity.GetPet"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.GetPet" />
+                android:value=".activity.GetPet" />
         </activity>
         <activity
-            android:name=".ServiceRequestForm"
+            android:name=".activity.ServiceRequestForm"
             android:label="@string/title_activity_service_request_form"
-            android:parentActivityName=".PetContacts"
+            android:parentActivityName=".activity.PetContacts"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.remya.petplanet.PetContacts" />
+                android:value=".activity.PetContacts" />
+        </activity>
+        <activity
+            android:name=".activity.Favorites"
+            android:label="@string/title_activity_favorites"
+            android:parentActivityName=".activity.GetPet"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.activity.GetPet" />
         </activity>
     </application>
 

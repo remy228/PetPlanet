@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
    app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.remya.petplanet.GetPet"
+    tools:context=".activity.GetPet"
     tools:showIn="@layout/activity_get_pet">
 
     <ImageView
@@ -22,10 +22,11 @@
         android:id="@+id/spinner1"
         android:prompt="@string/spin"
         android:entries="@array/items"
-        android:layout_centerVertical="true"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="20dp"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/imageView4"
+        android:layout_alignEnd="@+id/spinner2" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -35,7 +36,8 @@
         android:layout_marginLeft="30dp"
         android:background="@android:color/darker_gray"
         android:layout_below="@+id/spinner2"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/imageButton12" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -43,8 +45,9 @@
         android:id="@+id/spinner2"
         android:entries="@array/cities"
         android:layout_marginBottom="20dp"
+        android:layout_alignStart="@+id/descriptionInput"
         android:layout_below="@+id/spinner1"
-        android:layout_alignStart="@+id/descriptionInput" />
+        android:layout_toStartOf="@+id/imageButton12" />
 
     <Button
         android:layout_width="wrap_content"
@@ -52,7 +55,16 @@
         android:text="SEARCH"
         android:id="@+id/button4"
         android:layout_below="@+id/descriptionInput"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton12"
+        android:src="@drawable/insta_like"
+        android:layout_below="@+id/button4"
         android:layout_centerHorizontal="true"
-        android:onClick="getResults"/>
+        android:onClick="displayFave"/>
 
 </RelativeLayout>

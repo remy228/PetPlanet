@@ -1,4 +1,4 @@
-package com.example.remya.petplanet;
+package com.example.remya.petplanet.activity;
 
 import android.app.ProgressDialog;
 import android.graphics.drawable.Drawable;
@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.remya.petplanet.R;
 import com.example.remya.petplanet.data.Channel;
 import com.example.remya.petplanet.data.Item;
 import com.example.remya.petplanet.service.WeatherServiceCallback;

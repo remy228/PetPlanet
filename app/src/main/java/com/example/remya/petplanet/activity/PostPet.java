@@ -1,15 +1,10 @@
-package com.example.remya.petplanet;
+package com.example.remya.petplanet.activity;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
@@ -21,8 +16,8 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
+import com.example.remya.petplanet.R;
+import com.example.remya.petplanet.activity.MyDBHandler;
 
 public class PostPet extends AppCompatActivity {
 
@@ -36,6 +31,10 @@ public class PostPet extends AppCompatActivity {
     Spinner category;
     String path;
     EditText description;
+    EditText city;
+    EditText phone;
+    Spinner gender;
+    EditText orgname;
     MyDBHandler myDBHandler;
     SQLiteDatabase sqLiteDatabase;
 
@@ -54,7 +53,11 @@ public class PostPet extends AppCompatActivity {
         imageView = (ImageView) findViewById(R.id.imageView);
         petBreed = (EditText)findViewById(R.id.breedInput);
         petName = (EditText)findViewById(R.id.nameInput);
+        city = (EditText)findViewById(R.id.cityInput);
+        gender = (Spinner)findViewById(R.id.spinner1);
         description = (EditText)findViewById(R.id.descriptionInput);
+        orgname = (EditText)findViewById(R.id.orgInput);
+        phone = (EditText)findViewById(R.id.numberInput);
 
 
         button.setOnClickListener(new View.OnClickListener() {
@@ -77,16 +80,17 @@ public class PostPet extends AppCompatActivity {
                 String name = petName.getText().toString();
                 String pet_description = description.getText().toString();
                 String pet_category = category.getSelectedItem().toString();
-
+                String pet_gender = gender.getSelectedItem().toString();
+                String pet_city = city.getText().toString();
+                String pet_phone = phone.getText().toString();
+                String pet_orgname = orgname.getText().toString();
 
                 myDBHandler = new MyDBHandler(getApplicationContext());
                 sqLiteDatabase = myDBHandler.getWritableDatabase();
-                System.out.println("Post Pet Details:" + pet_category + path + breed + name + pet_description);
-                myDBHandler.postPettoDB(pet_category,path,breed,name,pet_description,sqLiteDatabase);
+                System.out.println("Post Pet Details:" + pet_category + pet_city + path + breed + name + gender + pet_description);
+                myDBHandler.postPettoDB(pet_category,pet_city,path,breed,name,pet_gender,pet_phone,pet_orgname,pet_description,sqLiteDatabase);
                 Toast.makeText(getBaseContext(),"Pet Details Saved!", Toast.LENGTH_LONG).show();
                 myDBHandler.close();
-            /*    nutritionpageintent.putExtra("Recipe",recipename2);
-                startActivity(nutritionpageintent);*/
 
             }
 

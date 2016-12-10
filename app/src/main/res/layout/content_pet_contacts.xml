@@ -12,7 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.remya.petplanet.PetContacts"
+    tools:context=".activity.PetContacts"
     tools:showIn="@layout/activity_pet_contacts"
     android:orientation="horizontal">
 

@@ -1,11 +1,9 @@
-package com.example.remya.petplanet;
+package com.example.remya.petplanet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.icu.util.Calendar;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -52,7 +50,7 @@ public class ServiceRequestForm extends AppCompatActivity {
                         // TODO Auto-generated method stub
                     /*      Your code   to get date and time    */
 
-                        date.setText(new StringBuilder().append(selectedday).append("/").append(selectedmonth).append("/").append(selectedyear));
+                        date.setText(new StringBuilder().append(selectedday).append("/").append(selectedmonth+1).append("/").append(selectedyear));
                     }
                 },mYear, mMonth, mDay);
                 mDatePicker.setTitle("Select date");

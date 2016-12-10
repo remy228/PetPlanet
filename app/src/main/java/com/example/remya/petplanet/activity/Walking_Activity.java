@@ -1,15 +1,21 @@
-package com.example.remya.petplanet;
+package com.example.remya.petplanet.activity;
 
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.location.Location;
+
+import com.example.remya.petplanet.Manifest;
+import com.example.remya.petplanet.R;
 import com.google.android.gms.location.LocationListener;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.content.ContextCompat;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
@@ -49,12 +55,14 @@ public class Walking_Activity extends FragmentActivity implements OnMapReadyCall
     Marker currLocationMarker;
     private ArrayList<LatLng> points; //added
     Polyline line;
-
+    private static final int REQUEST_FINE_LOCATION=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_walking_);
 
         points = new ArrayList<LatLng>();
@@ -67,6 +75,7 @@ public class Walking_Activity extends FragmentActivity implements OnMapReadyCall
         mStepDetectorSensor = mSensorManager
                 .getDefaultSensor(Sensor.TYPE_STEP_DETECTOR);
 
+        loadPermissions(android.Manifest.permission.ACCESS_FINE_LOCATION,REQUEST_FINE_LOCATION);
 
         //Maps Stuff
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -75,6 +84,43 @@ public class Walking_Activity extends FragmentActivity implements OnMapReadyCall
 
     }
 
+    private void loadPermissions(String perm,int requestCode) {
+        if (ContextCompat.checkSelfPermission(this, perm) != PackageManager.PERMISSION_GRANTED) {
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this, perm)) {
+                ActivityCompat.requestPermissions(this, new String[]{perm},requestCode);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        switch (requestCode) {
+            case REQUEST_FINE_LOCATION: {
+                // If request is cancelled, the result arrays are empty.
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    // granted
+                }
+                else{
+                    // no granted
+                }
+                return;
+            }
+
+        }
+
+    }
+
+  /*  public void checkPermission(){
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED ||
+                ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED
+                ){//Can add more as per requirement
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION},
+                    123);
+        }
+    }
+*/
     @Override
     public void onSensorChanged (SensorEvent event){
         Sensor sensor = event.sensor;
