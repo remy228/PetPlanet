@@ -132,7 +132,7 @@ public class Walking_Activity extends FragmentActivity implements OnMapReadyCall
         }
 
         if (sensor.getType() == Sensor.TYPE_STEP_COUNTER) {
-            value = 2000;
+           // value = 2000;
             float distance = (float) (0.0005*value);
             String dist = String.format("%.2f", distance);
             if(distance == 1.00)

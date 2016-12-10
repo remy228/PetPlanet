@@ -31,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="START WALKING!"
+        android:layout_marginTop="30dp"
         android:id="@+id/button3"
         android:onClick="startWalking"
         android:layout_below="@+id/button2"

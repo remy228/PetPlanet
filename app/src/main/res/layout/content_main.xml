@@ -22,7 +22,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Everything you need under one Woof!"
         android:layout_marginBottom="10dp"
-        android:layout_marginLeft="25dp"
+        android:layout_marginLeft="20dp"
         android:id="@+id/textView10"
         android:typeface="serif"
         android:textColor="@android:color/holo_green_dark" />
@@ -64,21 +64,26 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Get a Pet!"
+            android:text="ADOPT"
+            android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
             android:id="@+id/textView"
             android:layout_row="1"
-            android:layout_column="3" />
+            android:layout_column="3"
+            android:textColor="@android:color/black"
+            android:typeface="normal" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Post a Pet!"
+            android:text="SUBMIT"
+            android:layout_marginLeft="20dp"
             android:layout_marginBottom="10dp"
             android:id="@+id/textView2"
             android:layout_row="1"
-            android:layout_column="4" />
+            android:layout_column="4"
+            android:textColor="@android:color/black" />
 
         <ImageButton
             android:layout_width="wrap_content"
@@ -105,19 +110,21 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Walk a Pet!"
+            android:text="WALK MY DOG"
             android:id="@+id/textView3"
             android:layout_row="3"
-            android:layout_column="3" />
+            android:layout_column="3"
+            android:textColor="@android:color/black" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text="Pet Contacts!"
+            android:text="PET SERVICES"
             android:id="@+id/textView4"
             android:layout_row="3"
-            android:layout_column="4" />
+            android:layout_column="4"
+            android:textColor="@android:color/black" />
 
         <com.facebook.login.widget.LoginButton
             android:id="@+id/login_button"

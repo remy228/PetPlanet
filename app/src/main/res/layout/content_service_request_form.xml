@@ -18,7 +18,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".activity.ServiceRequestForm"
-    tools:showIn="@layout/activity_service_request_form">
+    tools:showIn="@layout/activity_service_request_form"
+    android:background="@android:color/holo_orange_light">
 
     <TableLayout
         android:layout_width="match_parent"
@@ -46,7 +47,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="What type of pet is it?"
-                android:id="@+id/textView21" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView21"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -72,7 +75,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="How old is your pet?"
-                android:id="@+id/textView22" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView22"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -97,9 +102,11 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Anything else you would like to specify?"
-                android:id="@+id/textView23" />
+                android:id="@+id/textView23"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -125,7 +132,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="When do you need the service?"
-                android:id="@+id/textView24" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView24"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -151,7 +160,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="When time would you like the service?"
-                android:id="@+id/textView25" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView25"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -177,7 +188,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Number of days required?"
-                android:id="@+id/textView26" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView26"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -194,6 +207,66 @@
 
         </TableRow>
 
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text="Phone Number"
+            android:layout_marginTop="20dp"
+            android:id="@+id/textView30"
+            android:background="@android:color/darker_gray" />
+
+    </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="Enter number"
+                android:id="@+id/phone" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Email Address"
+        android:layout_marginTop="20dp"
+        android:id="@+id/textView31"
+        android:background="@android:color/darker_gray" />
+
+</TableRow>
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:hint="Duration you need the service"
+                android:id="@+id/email" />
+
+        </TableRow>
+
+
 
         <TableRow
             android:layout_width="match_parent"
@@ -204,7 +277,9 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Your location"
-                android:id="@+id/textView27" />
+                android:layout_marginTop="20dp"
+                android:id="@+id/textView27"
+                android:background="@android:color/darker_gray" />
 
         </TableRow>
 
@@ -232,6 +307,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Send a Request"
+            android:layout_marginTop="20dp"
             android:id="@+id/button5" />
 
 

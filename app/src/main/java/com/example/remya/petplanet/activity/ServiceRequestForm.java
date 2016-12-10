@@ -3,16 +3,24 @@ package com.example.remya.petplanet.activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.icu.util.Calendar;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import com.example.remya.petplanet.R;
 
+/**
+ * Created by remya on 12/10/2016.
+ */
 public class ServiceRequestForm extends AppCompatActivity {
 
 
@@ -21,6 +29,14 @@ public class ServiceRequestForm extends AppCompatActivity {
     int mDay;
     EditText date;
     EditText time;
+    TextView location;
+    Button button;
+    private LocationManager locManager;
+    private LocationListener locListener;
+
+    private boolean gps_enabled = false;
+    private boolean network_enabled = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +47,9 @@ public class ServiceRequestForm extends AppCompatActivity {
 
         date = (EditText) findViewById(R.id.date);
         time = (EditText) findViewById(R.id.time);
+        button = (Button) findViewById(R.id.button5);
+        location = (TextView)findViewById(R.id.textView29);
+
 
         date.setOnClickListener(new View.OnClickListener() {
 
@@ -89,8 +108,17 @@ public class ServiceRequestForm extends AppCompatActivity {
             }
         });
 
+        button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+
+                Toast.makeText(getBaseContext(),"Your service request has been made!", Toast.LENGTH_LONG).show();
+
+            }
+
+
+        });
 
     }
-
 
 }

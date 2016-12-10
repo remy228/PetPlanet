@@ -24,6 +24,7 @@
         android:entries="@array/items"
         android:layout_marginLeft="30dp"
         android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/imageView4"
         android:layout_alignEnd="@+id/spinner2" />
@@ -53,6 +54,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="SEARCH"
+        android:layout_marginTop="30dp"
         android:id="@+id/button4"
         android:layout_below="@+id/descriptionInput"
         android:layout_alignParentEnd="true"
@@ -62,6 +64,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/imageButton12"
+        android:layout_marginTop="30dp"
         android:src="@drawable/insta_like"
         android:layout_below="@+id/button4"
         android:layout_centerHorizontal="true"
