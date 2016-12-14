@@ -53,7 +53,7 @@ public class PetResults extends AppCompatActivity {
             fragmentTransaction.replace(android.R.id.content, landscapeFragment);
 
         }
-        fragmentTransaction.commit();
+         fragmentTransaction.commit();
         //Ends here
 
         pic1 = (ImageView) findViewById(R.id.imageView5);

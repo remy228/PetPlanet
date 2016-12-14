@@ -3,6 +3,7 @@ package com.example.remya.petplanet.activity;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.icu.util.Calendar;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -31,7 +32,17 @@ public class ServiceRequestForm extends AppCompatActivity {
     EditText date;
     EditText time;
     Button button;
-
+    MyDBHandler myDBHandler;
+    SQLiteDatabase sqLiteDatabase;
+    TextView type;
+    TextView age;
+    TextView specs;
+    TextView date_needed;
+    TextView time_needed;
+    TextView phonenumber;
+    TextView email_address;
+    TextView location;
+    TextView days_needed;
 
 
     @Override
@@ -44,6 +55,16 @@ public class ServiceRequestForm extends AppCompatActivity {
         date = (EditText) findViewById(R.id.date);
         time = (EditText) findViewById(R.id.time);
         button = (Button) findViewById(R.id.button5);
+        type = (TextView)findViewById(R.id.type);
+        specs = (TextView)findViewById(R.id.needs);
+        age = (TextView)findViewById(R.id.age);
+        date_needed = (TextView)findViewById(R.id.date);
+        time_needed = (TextView)findViewById(R.id.time);
+        days_needed = (TextView)findViewById(R.id.number);
+        phonenumber = (TextView)findViewById(R.id.phone);
+        email_address = (TextView)findViewById(R.id.email);
+        location = (TextView)findViewById(R.id.address);
+
 
 
 
@@ -108,6 +129,18 @@ public class ServiceRequestForm extends AppCompatActivity {
             @Override
             public void onClick(View v){
 
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getWritableDatabase();
+                String pet_type = type.getText().toString();
+                String pet_age = age.getText().toString();
+                String pet_specs = specs.getText().toString();
+                String service_date= date_needed.getText().toString();
+                String service_time = time_needed.getText().toString();
+                String days = days_needed.getText().toString();
+                String client_phone = phonenumber.getText().toString();
+                String client_email = email_address.getText().toString();
+                String client_location = location.getText().toString();
+                myDBHandler.postRequest(pet_type,pet_age,pet_specs,service_date,service_time,days,client_phone,client_email,client_location,sqLiteDatabase);
                 Toast.makeText(getBaseContext(),"Your service request has been made!", Toast.LENGTH_LONG).show();
 
             }

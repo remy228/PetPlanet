@@ -17,7 +17,6 @@ public class PetContacts extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
     }
 
     public void getServiceForm(View view){

@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         loginButton = (LoginButton)findViewById(R.id.login_button);
 
-        /*try {
+      try {
             PackageInfo info = getPackageManager().getPackageInfo(
                     "com.example.remya.petplanet",
                     PackageManager.GET_SIGNATURES);
@@ -57,8 +57,6 @@ public class MainActivity extends AppCompatActivity {
         } catch (NoSuchAlgorithmException e) {
 
         }
-*/
-
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -78,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                   flag=2;
 
             }
-        });
+    });
 
         if(flag==0)
         {
@@ -106,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
     {
         Intent intent = new Intent(this,PostPet.class);
         startActivity(intent);
-
-
     }
 
     public void walkPet(View view)
@@ -123,9 +119,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
 
     }
-
-
-
 
 
     @Override
