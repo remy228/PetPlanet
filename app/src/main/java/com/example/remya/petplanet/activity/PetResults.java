@@ -34,27 +34,17 @@ public class PetResults extends AppCompatActivity {
     TextView gen1,gen2,gen3,gen4,gen5,gen6,gen7,gen8,gen9,gen10;
     Uri myUri;
     String pet_name;
+    String pet_image;
     String pet_gender, pet_org,pet_phone;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_pet_results);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // Code for implementing Fragments
-        Configuration config = getResources().getConfiguration();
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-
-        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
-            LandscapeFragment landscapeFragment = new LandscapeFragment();
-            fragmentTransaction.replace(android.R.id.content, landscapeFragment);
-
-        }
-         fragmentTransaction.commit();
-        //Ends here
 
         pic1 = (ImageView) findViewById(R.id.imageView5);
         pic2 = (ImageView) findViewById(R.id.imageView20);
@@ -135,9 +125,7 @@ public class PetResults extends AppCompatActivity {
         gen9 = (TextView) findViewById(R.id.textView72);
         gen10 = (TextView) findViewById(R.id.textView79);
 
-
         //Recieving values entered for Search results through Intent
-
         recieveIntent = new Intent(this, GetPet.class);
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
@@ -147,61 +135,142 @@ public class PetResults extends AppCompatActivity {
             System.out.println("Intent test recieved: " + category + " " + city + " " + breed);
         }
 
+
+        // Code for implementing Fragments
+        Configuration config = getResources().getConfiguration();
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+        if (config.orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            LandscapeFragment landscapeFragment = new LandscapeFragment();
+            fragmentTransaction.replace(android.R.id.content, landscapeFragment);
+
+        }
+
+        fragmentTransaction.commit();
+        //Ends here
+
+
+        //Retrieve appropriate images and details as results
+        int flag = 0;
         myDBHandler = new MyDBHandler(getApplicationContext());
         sqLiteDatabase = myDBHandler.getReadableDatabase();
+        System.out.println("I've reached the select query!");
+        Cursor cur1 = sqLiteDatabase.rawQuery("SELECT Pet_ImageURI, Pet_Name, Pet_Gender, Pet_Organization, Pet_Owner_Phone" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+        try {
 
-        phone1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                ClipboardManager cm = (ClipboardManager)getBaseContext().getSystemService(Context.CLIPBOARD_SERVICE);
-                cm.setText(phone1.getText());
-                Toast.makeText(getBaseContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
-            }
-        });
+            while (cur1.moveToNext()){
+             /*   int index = cur1.getColumnIndex("rownum");
+                System.out.println("Indexxxxxxxxxxxxxxx" + index);*/
+                pet_image = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_IMAGEURI));
+             /*   myUri = Uri.parse(pet_image);
+                System.out.println("Urii :" + myUri);*/
+                pet_name = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_NAME));
+                pet_gender = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_GENDER));
+                pet_org = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_ORGANIZATION));
+                pet_phone = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_PHONE));
+                System.out.println("Values:" + pet_name + pet_gender + pet_org + pet_phone + pet_image);
 
-       /* myView = findViewById(R.id.view);
-        myView.setOnLongClickListener(new View.OnLongClickListener() {
-            public boolean onLongClick(View arg0) {
-                Toast.makeText(getApplicationContext(), "Long Clicked " , Toast.LENGTH_SHORT).show();
+                if(flag==0){
+                    System.out.println("flag = " + flag);
+                    function1();
 
-                return true;    // set to true
-            }
-        });*/
-
-      /*  Cursor c=sqLiteDatabase.rawQuery("SELECT Pet_ImageURI, Pet_Name, Pet_Gender, Pet_Organization, Pet_Owner_Phone" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'" , null);
-        if(c.moveToFirst()) {
-            int curSize=c.getCount();  // return no of rows
-            if(curSize>10) {
-                int lastTenValue=curSize -10;
-                for(int i=0;i<lastTenValue;i++){
-                    c.moveToNext();
                 }
-            } else {
-                c.moveToFirst();
+                //  function1();
+                if(flag==1) {
+                    System.out.println("flag = " + flag);
+                    function2();
+                }
+                if(flag==2) {
+                    System.out.println("flag = " + flag);
+                    function2();
+                }
+                if(flag==3) {
+                    System.out.println("flag = " + flag);
+                    function3();
+                }
+                if(flag==4) {
+                    System.out.println("flag = " + flag);
+                    function4();
+                }
+                if(flag==5) {
+                    System.out.println("flag = " + flag);
+                    function5();
+                }
+                if(flag==6) {
+                    System.out.println("flag = " + flag);
+                    function6();
+                }
+                if(flag==7) {
+                    System.out.println("flag = " + flag);
+                    function7();
+                }
+                if(flag==8) {
+                    System.out.println("flag = " + flag);
+                    function8();
+                }
+
+                if(flag==9) {
+                    System.out.println("flag = " + flag);
+                    function9();
+                }
+
+                if(flag==10) {
+                    System.out.println("flag = " + flag);
+                    function10();
+                }
+                flag=flag+1;
             }
+        } catch(Exception e) {
+            cur1.close();
+            System.out.println("Exception=" + e);
+            System.out.println("Failing at the Select Statement!");
         }
-*/
 
-        pic1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
 
-                myDBHandler = new MyDBHandler(getApplicationContext());
-                sqLiteDatabase = myDBHandler.getReadableDatabase();
-                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
-                try {
 
-                    while (cur11.moveToNext()) {
 
-                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
 
+
+try {
+    phone1.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            ClipboardManager cm = (ClipboardManager) getBaseContext().getSystemService(Context.CLIPBOARD_SERVICE);
+            cm.setText(phone1.getText());
+            Toast.makeText(getBaseContext(), "Copied to clipboard", Toast.LENGTH_SHORT).show();
+        }
+    });
+}catch(NullPointerException e){
+    System.out.println("Exception!!" + e);
+        }
+
+        try {
+            pic1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    myDBHandler = new MyDBHandler(getApplicationContext());
+                    sqLiteDatabase = myDBHandler.getReadableDatabase();
+                    Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                    try {
+
+                        while (cur11.moveToNext()) {
+
+                            Toast.makeText(getBaseContext(), cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                        }
+                    } finally {
+                        cur11.close();
                     }
-                } finally {
-                    cur11.close();
                 }
-            }
             });
+        }catch(NullPointerException e){
 
+        }
+
+
+        try{
         pic2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -221,7 +290,11 @@ public class PetResults extends AppCompatActivity {
                 }
             }
         });
+    }catch(NullPointerException e){
 
+    }
+
+    try {
         pic3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -233,7 +306,7 @@ public class PetResults extends AppCompatActivity {
 
                     while (cur11.moveToNext()) {
 
-                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getBaseContext(), cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
 
                     }
                 } finally {
@@ -241,112 +314,69 @@ public class PetResults extends AppCompatActivity {
                 }
             }
         });
+    }catch(NullPointerException e){
 
-        pic4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                myDBHandler = new MyDBHandler(getApplicationContext());
-                sqLiteDatabase = myDBHandler.getReadableDatabase();
-                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
-                try {
-
-                    while (cur11.moveToNext()) {
-
-                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
-
-                    }
-                } finally {
-                    cur11.close();
-                }
-            }
-        });
-
-        pic5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                myDBHandler = new MyDBHandler(getApplicationContext());
-                sqLiteDatabase = myDBHandler.getReadableDatabase();
-                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
-                try {
-
-                    while (cur11.moveToNext()) {
-
-                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
-
-                    }
-                } finally {
-                    cur11.close();
-                }
-            }
-        });
+    }
 
 
-        //Retrieve appropriate images and details as results
-        int flag = 0;
-        Cursor cur1 = sqLiteDatabase.rawQuery("SELECT Pet_ImageURI, Pet_Name, Pet_Gender, Pet_Organization, Pet_Owner_Phone" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
         try {
+            pic4.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
 
-            while (cur1.moveToNext()){
-             /*   int index = cur1.getColumnIndex("rownum");
-                System.out.println("Indexxxxxxxxxxxxxxx" + index);*/
-                String pet_image = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_IMAGEURI));
-                myUri = Uri.parse(pet_image);
-                pet_name = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_NAME));
-                pet_gender = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_GENDER));
-                pet_org = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_ORGANIZATION));
-                pet_phone = cur1.getString(cur1.getColumnIndex(MyDBHandler.COLUMN_PHONE));
-                System.out.println("Values:" + pet_name + pet_gender + pet_org + pet_phone);
+                    myDBHandler = new MyDBHandler(getApplicationContext());
+                    sqLiteDatabase = myDBHandler.getReadableDatabase();
+                    Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                    try {
 
-                if(flag==0){
-                    function1();
-                }
-                  //  function1();
-                if(flag==1) {
-                    function2();
-                }
-                if(flag==2) {
-                    function2();
-                }
-                if(flag==3) {
-                    function3();
-                }
-                if(flag==4) {
-                    function4();
-                }
-                if(flag==5) {
-                    function5();
-                }
-                if(flag==6) {
-                    function6();
-                }
-                if(flag==7) {
-                    function7();
-                }
-                if(flag==8) {
-                    function8();
-                }
+                        while (cur11.moveToNext()) {
 
-                if(flag==9) {
-                    function9();
-                }
+                            Toast.makeText(getBaseContext(), cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
 
-                if(flag==10) {
-                    function10();
+                        }
+                    } finally {
+                        cur11.close();
+                    }
                 }
-                flag=flag+1;
-            }
-        } finally {
-            cur1.close();
+            });
+        }catch(NullPointerException e){
+
         }
+
+
+        try {
+            pic5.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    myDBHandler = new MyDBHandler(getApplicationContext());
+                    sqLiteDatabase = myDBHandler.getReadableDatabase();
+                    Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                    try {
+
+                        while (cur11.moveToNext()) {
+
+                            Toast.makeText(getBaseContext(), cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                        }
+                    } finally {
+                        cur11.close();
+                    }
+                }
+            });
+        }catch(NullPointerException e){
+
+        }
+
+
     }
 
 
       public void function1(){
-          if (myUri != null) {
+          if (pet_image != null) {
 
-                    pic1.setImageURI(myUri);
+                Uri myUri = Uri.parse(pet_image);
+                 pic1.setImageURI(myUri);
                 }
                 if (pet_name != null) {
 
@@ -372,15 +402,16 @@ public class PetResults extends AppCompatActivity {
                     phone1.setText(pet_phone);
 
                 }
+
         }
 
         //2ND
 
     public void function2(){
 
-                    if (myUri != null) {
+                    if (pet_image != null) {
 
-
+                        Uri myUri = Uri.parse(pet_image);
                         pic2.setImageURI(myUri);
                     }
                     if (pet_name != null) {
@@ -415,9 +446,9 @@ public class PetResults extends AppCompatActivity {
 
     public void function3(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic3.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -452,9 +483,9 @@ public class PetResults extends AppCompatActivity {
 
     public void function4(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic4.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -488,9 +519,9 @@ public class PetResults extends AppCompatActivity {
 
     public void function5(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic5.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -525,9 +556,9 @@ public class PetResults extends AppCompatActivity {
 
     public void function6(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic6.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -561,9 +592,9 @@ public class PetResults extends AppCompatActivity {
         //7TH
         public void function7(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic7.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -598,9 +629,9 @@ public class PetResults extends AppCompatActivity {
 
     public void function8(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic8.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -632,9 +663,9 @@ public class PetResults extends AppCompatActivity {
         //9TH
         public void function9(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic9.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -668,9 +699,9 @@ public class PetResults extends AppCompatActivity {
         //10TH
         public void function10(){
 
-                if(myUri != null) {
+                if(pet_image != null) {
 
-                    //   pic1.setImageURI(null);
+                    Uri myUri = Uri.parse(pet_image);
                     pic10.setImageURI(myUri);
                 }
                 if(pet_name != null) {
@@ -699,7 +730,5 @@ public class PetResults extends AppCompatActivity {
                 }
 
             }
-
-
 
 }

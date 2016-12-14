@@ -53,4 +53,5 @@ android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:src="@drawable/yahoo"
         android:id="@+id/imageView3" />
+
 </RelativeLayout>

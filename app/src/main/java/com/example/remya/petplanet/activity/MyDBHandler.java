@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public class MyDBHandler extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "PetNanny_4.db";
+    public static final String DATABASE_NAME = "PetNanny_5.db";
     public static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "PetsForAdoption";
     public static final String TABLE_NAME2 = "Service_Requests";
@@ -69,7 +69,7 @@ public class MyDBHandler extends SQLiteOpenHelper {
         contentValues.put(COLUMN_NAME, name);
         contentValues.put(COLUMN_DESCRIPTION, pet_description);
         db.insert(TABLE_NAME, null, contentValues);
-        System.out.println("New values inserted!!!!!!");
+        System.out.println("New values inserted!!!!!!" + path);
 
     }
 

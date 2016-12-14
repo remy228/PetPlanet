@@ -87,7 +87,7 @@ public class PostPet extends AppCompatActivity {
 
                 myDBHandler = new MyDBHandler(getApplicationContext());
                 sqLiteDatabase = myDBHandler.getWritableDatabase();
-                System.out.println("Post Pet Details:" + pet_category + pet_city + path + breed + name + gender + pet_description);
+                System.out.println("Post Pet Details:" + pet_category + pet_city + path + breed + name + pet_gender + pet_description);
                 myDBHandler.postPettoDB(pet_category,pet_city,path,breed,name,pet_gender,pet_phone,pet_orgname,pet_description,sqLiteDatabase);
                 Toast.makeText(getBaseContext(),"Pet Details Saved!", Toast.LENGTH_LONG).show();
                 myDBHandler.close();
@@ -113,6 +113,7 @@ public class PostPet extends AppCompatActivity {
         if(resultCode == RESULT_OK && requestCode == PICK_IMAGE){
             imageUri = data.getData();
             imageView.setImageURI(imageUri);
+            System.out.println("IMAGE TEST22222" + imageUri);
             path = imageUri.toString();
             System.out.println("IMAGE TEST" + path);
 
