@@ -77,11 +77,13 @@ public class PostPet extends AppCompatActivity {
                 myDBHandler = new MyDBHandler(getApplicationContext());
                 sqLiteDatabase = myDBHandler.getWritableDatabase();
                 String breed = petBreed.getText().toString();
+                breed =  breed.trim();
                 String name = petName.getText().toString();
                 String pet_description = description.getText().toString();
                 String pet_category = category.getSelectedItem().toString();
                 String pet_gender = gender.getSelectedItem().toString();
                 String pet_city = city.getText().toString();
+                pet_city = pet_city.trim();
                 String pet_phone = phone.getText().toString();
                 String pet_orgname = orgname.getText().toString();
 
