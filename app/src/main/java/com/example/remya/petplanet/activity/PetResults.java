@@ -181,6 +181,108 @@ public class PetResults extends AppCompatActivity {
             }
         }
 */
+
+        pic1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getReadableDatabase();
+                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                try {
+
+                    while (cur11.moveToNext()) {
+
+                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                    }
+                } finally {
+                    cur11.close();
+                }
+            }
+            });
+
+        pic2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getReadableDatabase();
+                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                try {
+
+                    while (cur11.moveToNext()) {
+
+                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                    }
+                } finally {
+                    cur11.close();
+                }
+            }
+        });
+
+        pic3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getReadableDatabase();
+                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                try {
+
+                    while (cur11.moveToNext()) {
+
+                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                    }
+                } finally {
+                    cur11.close();
+                }
+            }
+        });
+
+        pic4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getReadableDatabase();
+                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                try {
+
+                    while (cur11.moveToNext()) {
+
+                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                    }
+                } finally {
+                    cur11.close();
+                }
+            }
+        });
+
+        pic5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                myDBHandler = new MyDBHandler(getApplicationContext());
+                sqLiteDatabase = myDBHandler.getReadableDatabase();
+                Cursor cur11 = sqLiteDatabase.rawQuery("SELECT Pet_Description" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
+                try {
+
+                    while (cur11.moveToNext()) {
+
+                        Toast.makeText(getBaseContext(),cur11.getString(cur11.getColumnIndex(MyDBHandler.COLUMN_DESCRIPTION)), Toast.LENGTH_SHORT).show();
+
+                    }
+                } finally {
+                    cur11.close();
+                }
+            }
+        });
+
+
         //Retrieve appropriate images and details as results
         int flag = 0;
         Cursor cur1 = sqLiteDatabase.rawQuery("SELECT Pet_ImageURI, Pet_Name, Pet_Gender, Pet_Organization, Pet_Owner_Phone" + " FROM " + MyDBHandler.TABLE_NAME + " where Pet_Category = '" + category + "'" + "AND Pet_Breed = '" + breed + "'" + "AND Pet_City = '" + city + "'", null);
@@ -597,5 +699,7 @@ public class PetResults extends AppCompatActivity {
                 }
 
             }
+
+
 
 }

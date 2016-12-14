@@ -27,4 +27,12 @@ public class PetContacts extends AppCompatActivity {
 
     }
 
+
+    public void petDiaries(View view){
+
+        Intent intent = new Intent(this,Pet_Diaries.class);
+        startActivity(intent);
+
+    }
+
 }

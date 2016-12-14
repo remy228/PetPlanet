@@ -107,10 +107,11 @@
             android:onClick="petContacts"/>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="WALK MY DOG"
+            android:paddingRight="10dp"
             android:id="@+id/textView3"
             android:layout_row="3"
             android:layout_column="3"

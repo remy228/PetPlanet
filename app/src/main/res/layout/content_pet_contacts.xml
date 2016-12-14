@@ -100,6 +100,25 @@
 
         </TableRow>
 
+        <TableRow>
+
+            <ImageButton
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageButton12"
+                android:layout_alignParentBottom="true"
+                android:src="@drawable/pet_diaries"
+                android:onClick="petDiaries"/>
+
+        </TableRow>
+
+
+
+        <TableRow>
+
+        </TableRow>
+
+
     </TableLayout>
 
 </LinearLayout>

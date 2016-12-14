@@ -41,6 +41,8 @@
             </intent-filter>
         </activity>
 
+
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
@@ -144,6 +146,17 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.remya.petplanet.activity.GetPet" />
         </activity>
+        <activity
+            android:name=".activity.Pet_Diaries"
+            android:label="@string/title_activity_pet__diaries"
+            android:parentActivityName=".activity.PetContacts"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.remya.petplanet.activity.PetContacts" />
+        </activity>
+
+        <!--<meta-data android:name="com.facebook.sdk.ApplicationId" android:resource="@string/facebook_app_id" />-->
     </application>
 
 </manifest>

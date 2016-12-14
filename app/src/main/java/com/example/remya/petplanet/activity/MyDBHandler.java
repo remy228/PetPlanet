@@ -11,7 +11,7 @@ import android.util.Log;
  */
 public class MyDBHandler extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "PetNanny_2.db";
+    public static final String DATABASE_NAME = "PetNanny_3.db";
     public static final int DATABASE_VERSION = 1;
     public static final String TABLE_NAME = "PetsForAdoption";
     public static final String COLUMN_CATEGORY = "Pet_Category";

@@ -2,6 +2,7 @@ package com.example.remya.petplanet.activity;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.icu.util.Calendar;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -29,13 +30,8 @@ public class ServiceRequestForm extends AppCompatActivity {
     int mDay;
     EditText date;
     EditText time;
-    TextView location;
     Button button;
-    private LocationManager locManager;
-    private LocationListener locListener;
 
-    private boolean gps_enabled = false;
-    private boolean network_enabled = false;
 
 
     @Override
@@ -48,7 +44,7 @@ public class ServiceRequestForm extends AppCompatActivity {
         date = (EditText) findViewById(R.id.date);
         time = (EditText) findViewById(R.id.time);
         button = (Button) findViewById(R.id.button5);
-        location = (TextView)findViewById(R.id.textView29);
+
 
 
         date.setOnClickListener(new View.OnClickListener() {
@@ -118,6 +114,7 @@ public class ServiceRequestForm extends AppCompatActivity {
 
 
         });
+
 
     }
 
